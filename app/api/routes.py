@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # from fastapi import APIRouter, HTTPException
 # from fastapi.responses import JSONResponse
 # from pydantic import BaseModel
@@ -49,39 +48,3 @@ async def get_panchang(request: PanchangRequest):
         raise HTTPException(status_code=400, detail=str(e))
     except Exception as e:
         raise HTTPException(status_code=500, detail="Internal Server Error")
-=======
-# from fastapi import APIRouter, Query
-# from datetime import date
-# from app.services.panchang_service import compute_panchang
-
-# router = APIRouter()
-
-# @router.get("/panchang")
-# async def get_panchang(
-#     location: str = Query(..., description="City name or latitude,longitude"),
-#     date_value: date = Query(..., description="Date for Panchang calculation")
-# ):
-#     """
-#     Get Panchang details for a given date and location.
-#     """
-#     return compute_panchang(location, date_value)
-
-
-
-from fastapi import APIRouter, Query
-from datetime import date
-from app.services.panchang_service import compute_panchang
-
-router = APIRouter()
-
-@router.get("/panchang")
-async def get_panchang(
-    location: str = Query(..., description="City name or latitude,longitude"),
-    date_value: date = Query(..., description="Date for Panchang calculation")
-):
-    """
-    Get detailed Panchang for a given date and location.
-    """
-    return compute_panchang(location, date_value)
-
->>>>>>> b8a42b75d440e17b91f20f3edc6ef857bd7e3483
